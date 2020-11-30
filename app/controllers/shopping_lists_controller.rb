@@ -5,6 +5,10 @@ class ShoppingListsController < ApplicationController
 
     @list_of_shopping_lists = matching_shopping_lists.order({ :created_at => :desc })
 
+    matching_list_collaborations = @current_user.list_collaborations
+
+    @list_of_list_collaborations = matching_list_collaborations.order({ :created_at => :desc })
+
     render({ :template => "shopping_lists/index.html.erb" })
   end
 

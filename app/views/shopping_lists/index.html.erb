@@ -40,6 +40,7 @@
 
 <hr>
 <div>
+<h2>My Lists</h2>
   <div>
     <table>
       <tr>
@@ -52,15 +53,7 @@
         </th>
 
         <th>
-          User
-        </th>
-
-        <th>
-          List items count
-        </th>
-
-        <th>
-          List collaborations count
+          Number of items
         </th>
 
         <th>
@@ -86,15 +79,7 @@
         </td>
 
         <td>
-          <%= a_shopping_list.user_id %>
-        </td>
-
-        <td>
           <%= a_shopping_list.list_items_count %>
-        </td>
-
-        <td>
-          <%= a_shopping_list.list_collaborations_count %>
         </td>
 
         <td>
@@ -102,6 +87,75 @@
         </td>
         <td>
           <%= time_ago_in_words(a_shopping_list.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/shopping_lists/<%= a_shopping_list.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div>
+<h2>Lists shared with me</h2>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          List name
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          Number of items
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_list_collaborations.each do |a_collab_list| %>
+      <tr>
+        <td>
+          <%= a_collab_list.list_id %>
+        </td>
+
+        <td>
+          <%= a_collab_list.list.list_name %>
+        </td>
+
+        <td>
+          <%= a_collab_list.list.user_id %>
+        </td>
+
+        <td>
+          <%= a_collab_list.list.list_items_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_collab_list.list.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_collab_list.list.updated_at) %> ago
         </td>
 
         <td>

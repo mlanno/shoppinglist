@@ -10,4 +10,7 @@
 #  updated_at       :datetime         not null
 #
 class FoodCategory < ApplicationRecord
+
+  has_many(:list_items, { :class_name => "ListItem", :foreign_key => "category_id", :dependent => :destroy })
+  
 end

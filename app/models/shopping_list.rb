@@ -11,4 +11,13 @@
 #  user_id                   :integer
 #
 class ShoppingList < ApplicationRecord
+  belongs_to(:user, { :required => false, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
+  
+  has_many(:list_items, { :class_name => "ListItem", :foreign_key => "list_id", :dependent => :destroy })
+
+  has_many(:list_collaborations, { :class_name => "ListCollaboration", :foreign_key => "list_id", :dependent => :destroy })
+
+  validates(:user_id, { :presence => true })
+
+  validates(:list_name, { :presence => true })
 end

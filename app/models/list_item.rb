@@ -13,4 +13,9 @@
 #  list_id       :integer
 #
 class ListItem < ApplicationRecord
+
+  belongs_to(:list, { :required => false, :class_name => "ShoppingList", :foreign_key => "list_id", :counter_cache => true })
+
+  belongs_to(:category, { :required => false, :class_name => "FoodCategory", :foreign_key => "category_id", :counter_cache => true })
+  
 end

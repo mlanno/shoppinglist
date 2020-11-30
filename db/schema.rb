@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_172743) do
+ActiveRecord::Schema.define(version: 2020_11_30_173235) do
+
+  create_table "shopping_lists", force: :cascade do |t|
+    t.string "list_name"
+    t.integer "user_id"
+    t.integer "list_items_count", default: 0
+    t.integer "list_collaborations_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.string "name"
     t.string "username"
-    t.integer "shopping_lists_count"
+    t.integer "shopping_lists_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -6,7 +6,7 @@
 #  email                :string
 #  name                 :string
 #  password_digest      :string
-#  shopping_lists_count :integer
+#  shopping_lists_count :integer          default(0)
 #  username             :string
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null

@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all shopping lists
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new shopping list
+    </h2>
+
+    <form action="/insert_shopping_list" method="post">
+      <div>
+        <label for="list_name_box">
+          List name
+        </label>
+
+        <input type="text" id="list_name_box" name="query_list_name">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="list_items_count_box">
+          List items count
+        </label>
+
+        <input type="text" id="list_items_count_box" name="query_list_items_count">
+      </div>
+
+      <div>
+        <label for="list_collaborations_count_box">
+          List collaborations count
+        </label>
+
+        <input type="text" id="list_collaborations_count_box" name="query_list_collaborations_count">
+      </div>
+
+      <button>
+        Create shopping list
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          List name
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          List items count
+        </th>
+
+        <th>
+          List collaborations count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_shopping_lists.each do |a_shopping_list| %>
+      <tr>
+        <td>
+          <%= a_shopping_list.id %>
+        </td>
+
+        <td>
+          <%= a_shopping_list.list_name %>
+        </td>
+
+        <td>
+          <%= a_shopping_list.user_id %>
+        </td>
+
+        <td>
+          <%= a_shopping_list.list_items_count %>
+        </td>
+
+        <td>
+          <%= a_shopping_list.list_collaborations_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_shopping_list.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_shopping_list.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/shopping_lists/<%= a_shopping_list.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

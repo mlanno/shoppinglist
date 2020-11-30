@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :password_digest
       t.string :name
       t.string :username
-      t.integer :shopping_lists_count
+      t.integer :shopping_lists_count, { :default => 0 }
 
       t.timestamps
     end

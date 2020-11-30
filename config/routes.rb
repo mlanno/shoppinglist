@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Shopping list resource:
+
+  # CREATE
+  post("/insert_shopping_list", { :controller => "shopping_lists", :action => "create" })
+          
+  # READ
+  get("/shopping_lists", { :controller => "shopping_lists", :action => "index" })
+  
+  get("/shopping_lists/:path_id", { :controller => "shopping_lists", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_shopping_list/:path_id", { :controller => "shopping_lists", :action => "update" })
+  
+  # DELETE
+  get("/delete_shopping_list/:path_id", { :controller => "shopping_lists", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

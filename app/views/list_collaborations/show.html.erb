@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List collaboration #<%= @the_list_collaboration.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/list_collaborations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_list_collaboration/<%= @the_list_collaboration.id %>">
+          Delete list collaboration
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        List
+      </dt>
+      <dd>
+        <%= @the_list_collaboration.list_id %>
+      </dd>
+
+      <dt>
+        Collab with user
+      </dt>
+      <dd>
+        <%= @the_list_collaboration.collab_with_user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_list_collaboration.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_list_collaboration.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit list collaboration
+    </h2>
+
+    <form action="/modify_list_collaboration/<%= @the_list_collaboration.id %>"  method="post" >
+      <div>
+        <label for="list_id_box">
+          List
+        </label>
+
+        <input type="text" id="list_id_box" name="query_list_id" value="<%= @the_list_collaboration.list_id %>">
+      </div>
+
+      <div>
+        <label for="collab_with_user_id_box">
+          Collab with user
+        </label>
+
+        <input type="text" id="collab_with_user_id_box" name="query_collab_with_user_id" value="<%= @the_list_collaboration.collab_with_user_id %>">
+      </div>
+
+      <button>
+        Update list collaboration
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

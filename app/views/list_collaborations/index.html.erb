@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all list collaborations
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new list collaboration
+    </h2>
+
+    <form action="/insert_list_collaboration" method="post">
+      <div>
+        <label for="list_id_box">
+          List
+        </label>
+
+        <input type="text" id="list_id_box" name="query_list_id">
+      </div>
+
+      <div>
+        <label for="collab_with_user_id_box">
+          Collab with user
+        </label>
+
+        <input type="text" id="collab_with_user_id_box" name="query_collab_with_user_id">
+      </div>
+
+      <button>
+        Create list collaboration
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          List
+        </th>
+
+        <th>
+          Collab with user
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_list_collaborations.each do |a_list_collaboration| %>
+      <tr>
+        <td>
+          <%= a_list_collaboration.id %>
+        </td>
+
+        <td>
+          <%= a_list_collaboration.list_id %>
+        </td>
+
+        <td>
+          <%= a_list_collaboration.collab_with_user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_list_collaboration.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_list_collaboration.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/list_collaborations/<%= a_list_collaboration.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      List item #<%= @the_list_item.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/list_items">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_list_item/<%= @the_list_item.id %>">
+          Delete list item
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Item name
+      </dt>
+      <dd>
+        <%= @the_list_item.item_name %>
+      </dd>
+
+      <dt>
+        Quantity
+      </dt>
+      <dd>
+        <%= @the_list_item.quantity %>
+      </dd>
+
+      <dt>
+        List
+      </dt>
+      <dd>
+        <%= @the_list_item.list_id %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_list_item.category_id %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_list_item.notes %>
+      </dd>
+
+      <dt>
+        Complete flag
+      </dt>
+      <dd>
+        <%= @the_list_item.complete_flag %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_list_item.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_list_item.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit list item
+    </h2>
+
+    <form action="/modify_list_item/<%= @the_list_item.id %>"  method="post" >
+      <div>
+        <label for="item_name_box">
+          Item name
+        </label>
+
+        <input type="text" id="item_name_box" name="query_item_name" value="<%= @the_list_item.item_name %>">
+      </div>
+
+      <div>
+        <label for="quantity_box">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity_box" name="query_quantity" value="<%= @the_list_item.quantity %>">
+      </div>
+
+      <div>
+        <label for="list_id_box">
+          List
+        </label>
+
+        <input type="text" id="list_id_box" name="query_list_id" value="<%= @the_list_item.list_id %>">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_list_item.category_id %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes"><%= @the_list_item.notes %></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" id="complete_flag_box" name="query_complete_flag" value="1" <%= "checked" if @the_list_item.complete_flag %>>
+
+        <label for="complete_flag_box">
+            Complete flag
+        </label>
+      </div>
+
+      <button>
+        Update list item
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

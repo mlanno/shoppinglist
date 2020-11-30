@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all food categories
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new food category
+    </h2>
+
+    <form action="/insert_food_category" method="post">
+      <div>
+        <label for="category_box">
+          Category
+        </label>
+
+        <input type="text" id="category_box" name="query_category">
+      </div>
+
+      <div>
+        <label for="aisle_box">
+          Aisle
+        </label>
+
+        <input type="text" id="aisle_box" name="query_aisle">
+      </div>
+
+      <div>
+        <label for="list_items_count_box">
+          List items count
+        </label>
+
+        <input type="text" id="list_items_count_box" name="query_list_items_count">
+      </div>
+
+      <button>
+        Create food category
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Aisle
+        </th>
+
+        <th>
+          List items count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_food_categories.each do |a_food_category| %>
+      <tr>
+        <td>
+          <%= a_food_category.id %>
+        </td>
+
+        <td>
+          <%= a_food_category.category %>
+        </td>
+
+        <td>
+          <%= a_food_category.aisle %>
+        </td>
+
+        <td>
+          <%= a_food_category.list_items_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_food_category.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_food_category.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/food_categories/<%= a_food_category.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

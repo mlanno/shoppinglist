@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_173235) do
+ActiveRecord::Schema.define(version: 2020_11_30_193438) do
+
+  create_table "food_categories", force: :cascade do |t|
+    t.string "category"
+    t.string "aisle"
+    t.integer "list_items_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "list_collaborations", force: :cascade do |t|
+    t.integer "list_id"
+    t.integer "collab_with_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "list_items", force: :cascade do |t|
+    t.string "item_name"
+    t.integer "quantity"
+    t.integer "list_id"
+    t.integer "category_id"
+    t.text "notes"
+    t.boolean "complete_flag", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "shopping_lists", force: :cascade do |t|
     t.string "list_name"

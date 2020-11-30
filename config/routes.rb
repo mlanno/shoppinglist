@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   post("/insert_shopping_list", { :controller => "shopping_lists", :action => "create" })
           
   # READ
+  get("/", { :controller => "shopping_lists", :action => "index" })
   get("/shopping_lists", { :controller => "shopping_lists", :action => "index" })
   
   get("/shopping_lists/:path_id", { :controller => "shopping_lists", :action => "show" })

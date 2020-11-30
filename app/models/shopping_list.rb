@@ -11,7 +11,7 @@
 #  user_id                   :integer
 #
 class ShoppingList < ApplicationRecord
-  belongs_to(:user, { :required => false, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
   
   has_many(:list_items, { :class_name => "ListItem", :foreign_key => "list_id", :dependent => :destroy })
 

@@ -1,6 +1,6 @@
 class ListCollaborationsController < ApplicationController
   def index
-    matching_list_collaborations = ListCollaboration.all
+    matching_list_collaborations = @current_user.list_collaborations
 
     @list_of_list_collaborations = matching_list_collaborations.order({ :created_at => :desc })
 

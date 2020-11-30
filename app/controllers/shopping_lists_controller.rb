@@ -1,6 +1,7 @@
 class ShoppingListsController < ApplicationController
   def index
-    matching_shopping_lists = ShoppingList.all
+    #matching_shopping_lists = ShoppingList.where( { :user.id => @current_user.id })
+    matching_shopping_lists = @current_user.shopping_lists
 
     @list_of_shopping_lists = matching_shopping_lists.order({ :created_at => :desc })
 
@@ -20,10 +21,8 @@ class ShoppingListsController < ApplicationController
   def create
     the_shopping_list = ShoppingList.new
     the_shopping_list.list_name = params.fetch("query_list_name")
-    the_shopping_list.user_id = params.fetch("query_user_id")
-    the_shopping_list.list_items_count = params.fetch("query_list_items_count")
-    the_shopping_list.list_collaborations_count = params.fetch("query_list_collaborations_count")
-
+    the_shopping_list.user_id = @current_user.id
+    
     if the_shopping_list.valid?
       the_shopping_list.save
       redirect_to("/shopping_lists", { :notice => "Shopping list created successfully." })

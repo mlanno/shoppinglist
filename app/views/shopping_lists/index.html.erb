@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all shopping lists
+      Shopping lists
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new shopping list
+      Add a new list
     </h2>
 
     <form action="/insert_shopping_list" method="post">
@@ -28,7 +28,7 @@
           Share list with
         </label>
 
-        <input type="text" id="list_share" name="query_list_share" placeholder="name the list!">
+        <input type="text" id="list_share" name="query_list_share" placeholder="add friends!">
       </div>
 
       <button>
@@ -44,10 +44,7 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
-
+        
         <th>
           List name
         </th>
@@ -70,10 +67,7 @@
 
       <% @list_of_shopping_lists.each do |a_shopping_list| %>
       <tr>
-        <td>
-          <%= a_shopping_list.id %>
-        </td>
-
+        
         <td>
           <%= a_shopping_list.list_name %>
         </td>
@@ -108,10 +102,6 @@
     <table>
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           List name
         </th>
 
@@ -137,10 +127,6 @@
 
       <% @list_of_list_collaborations.each do |a_collab_list| %>
       <tr>
-        <td>
-          <%= a_collab_list.list_id %>
-        </td>
-
         <td>
           <%= a_collab_list.list.list_name %>
         </td>

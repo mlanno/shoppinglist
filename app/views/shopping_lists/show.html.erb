@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Shopping list #<%= @the_shopping_list.id %> details
+      <%= @the_shopping_list.list_name %>
     </h1>
 
     <div>
@@ -19,13 +19,6 @@
     </div>
 
     <dl>
-      <dt>
-        List name
-      </dt>
-      <dd>
-        <%= @the_shopping_list.list_name %>
-      </dd>
-
       <dt>
         Number of items
       </dt>
@@ -63,7 +56,7 @@
 <div>
   <div>
     <h2>
-      Edit shopping list
+      Edit list name
     </h2>
 
     <form action="/modify_shopping_list/<%= @the_shopping_list.id %>"  method="post" >
@@ -76,34 +69,149 @@
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_shopping_list.user_id %>">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_shopping_list.user_id %>">
       </div>
 
       <div>
-        <label for="list_items_count_box">
-          List items count
-        </label>
-
-        <input type="text" id="list_items_count_box" name="query_list_items_count" value="<%= @the_shopping_list.list_items_count %>">
+        <input type="hidden" id="list_items_count_box" name="query_list_items_count" value="<%= @the_shopping_list.list_items_count %>">
       </div>
 
       <div>
-        <label for="list_collaborations_count_box">
-          List collaborations count
-        </label>
-
-        <input type="text" id="list_collaborations_count_box" name="query_list_collaborations_count" value="<%= @the_shopping_list.list_collaborations_count %>">
+        <input type="hidden" id="list_collaborations_count_box" name="query_list_collaborations_count" value="<%= @the_shopping_list.list_collaborations_count %>">
       </div>
 
       <button>
-        Update shopping list
+        Update!
       </button>
     </form>
   </div>
 </div>
 
 <hr>
+
+<div>
+  <div>
+    <h2>
+      Add an item
+    </h2>
+
+    <form action="/insert_list_item" method="post">
+      <div>
+        <label for="item_name_box">
+          Item name
+        </label>
+
+        <input type="text" id="item_name_box" name="query_item_name">
+      </div>
+
+      <div>
+        <label for="quantity_box">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity_box" name="query_quantity">
+      </div>
+
+      <div>
+        <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <%# div %>
+        <%# input type="checkbox" id="complete_flag_box" name="query_complete_flag" value="1"%>
+
+        <%# label for="complete_flag_box">Complete flag</label %>
+      <%#/div%>
+
+      <button>
+        Add!
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <h2>Shopping List Items</h2>
+  <div>
+    <table>
+      <tr>
+        <th>
+          Name
+        </th>
+
+        <th>
+          Quantity
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Complete flag
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_list_items.each do |a_list_item| %>
+      <tr>
+        <td>
+          <%= a_list_item.item_name %>
+        </td>
+
+        <td>
+          <%= a_list_item.quantity %>
+        </td>
+
+        <td>
+          <%= a_list_item.category_id %>
+        </td>
+
+        <td>
+          <%= a_list_item.notes %>
+        </td>
+
+        <td>
+          <%= a_list_item.complete_flag %>
+        </td>
+
+        <td>
+          <a href="/list_items/<%= a_list_item.id %>">
+            Edit
+          </a>
+        </td>
+
+      <td>
+        <a href="/delete_list_item/<%= a_list_item.id %>">
+          <i class="fas fa-minus-circle"></i>
+        </a>
+      </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+

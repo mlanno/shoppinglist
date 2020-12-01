@@ -19,7 +19,12 @@ class ShoppingListsController < ApplicationController
 
     @the_shopping_list = matching_shopping_lists.at(0)
 
+    matching_list_items = ListItem.where({ :list_id => the_id })
+
+    @list_of_list_items = matching_list_items.order({ :created_at => :desc })
+
     render({ :template => "shopping_lists/show.html.erb" })
+
   end
 
   def create

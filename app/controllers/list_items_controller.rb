@@ -28,9 +28,9 @@ class ListItemsController < ApplicationController
 
     if the_list_item.valid?
       the_list_item.save
-      redirect_to("/list_items", { :notice => "List item created successfully." })
+      redirect_to("/shopping_lists/#{the_list_item.list_id}", { :notice => "List item created successfully." })
     else
-      redirect_to("/list_items", { :notice => "List item failed to create successfully." })
+      redirect_to("/shopping_lists/#{the_list_item.list_id}", { :notice => "List item failed to create successfully." })
     end
   end
 
@@ -47,7 +47,7 @@ class ListItemsController < ApplicationController
 
     if the_list_item.valid?
       the_list_item.save
-      redirect_to("/list_items/#{the_list_item.id}", { :notice => "List item updated successfully."} )
+      redirect_to("/shopping_lists/#{the_list_item.list_id}", { :notice => "List item updated successfully."} )
     else
       redirect_to("/list_items/#{the_list_item.id}", { :alert => "List item failed to update successfully." })
     end
@@ -59,6 +59,6 @@ class ListItemsController < ApplicationController
 
     the_list_item.destroy
 
-    redirect_to("/list_items", { :notice => "List item deleted successfully."} )
+    redirect_to("/shopping_lists/#{the_list_item.list_id}", { :notice => "List item deleted successfully."} )
   end
 end

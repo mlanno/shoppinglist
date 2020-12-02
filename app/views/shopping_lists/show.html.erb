@@ -92,6 +92,87 @@
 <div>
   <div>
     <h2>
+      Share list
+    </h2>
+
+    <form action="/insert_list_collaboration" method="post">
+      <div>
+        <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>">
+      </div>
+
+      <div>
+        <label for="collab_with_user_id_box">
+          Share with
+        </label>
+
+        <input type="text" id="collab_with_user_id_box" name="query_collab_with_user_id">
+      </div>
+
+      <button>
+        Share!
+      </button>
+    </form>
+  </div>
+</div>
+
+<div>
+  <h2>Shared with</h2>
+  <div>
+    <table>
+      <tr>
+        <th>
+          Name
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_list_items.each do |a_list_item| %>
+      <tr>
+        <td>
+          <%= a_list_item.item_name %>
+        </td>
+
+        <td>
+          <%= a_list_item.quantity %>
+        </td>
+
+        <td>
+          <%= a_list_item.category_id %>
+        </td>
+
+        <td>
+          <%= a_list_item.notes %>
+        </td>
+
+        <td>
+          <%= a_list_item.complete_flag %>
+        </td>
+
+        <td>
+          <a href="/list_items/<%= a_list_item.id %>">
+            Edit
+          </a>
+        </td>
+
+      <td>
+        <a href="/delete_list_item/<%= a_list_item.id %>">
+          <i class="fas fa-minus-circle"></i>
+        </a>
+      </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
       Add an item
     </h2>
 

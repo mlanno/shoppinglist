@@ -23,6 +23,10 @@ class ShoppingListsController < ApplicationController
 
     @list_of_list_items = matching_list_items.order({ :created_at => :desc })
 
+    matching_list_collaborations = ListCollaboration.where({ :id => the_id })
+
+    @the_list_collaboration = matching_list_collaborations.at(0)
+
     render({ :template => "shopping_lists/show.html.erb" })
 
   end

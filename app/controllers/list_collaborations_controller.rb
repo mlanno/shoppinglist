@@ -24,9 +24,9 @@ class ListCollaborationsController < ApplicationController
 
     if the_list_collaboration.valid?
       the_list_collaboration.save
-      redirect_to("/list_collaborations", { :notice => "List collaboration created successfully." })
+      redirect_to("/shopping_lists/#{the_list_collaboration.list_id}", { :notice => "List shared successfully." })
     else
-      redirect_to("/list_collaborations", { :notice => "List collaboration failed to create successfully." })
+      redirect_to("/shopping_lists/#{the_list_collaboration.list_id}", { :notice => "Failed to share list." })
     end
   end
 

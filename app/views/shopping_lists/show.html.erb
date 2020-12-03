@@ -96,17 +96,18 @@
     </h2>
 
     <form action="/insert_list_collaboration" method="post">
-      <div>
-        <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>">
-      </div>
-
-      <div>
-        <label for="collab_with_user_id_box">
+          <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>" >
+      <%#div%>
+        <%#label for="collab_with_user_id_box"%>
           Share with
-        </label>
+        <%#/label%>
 
-        <input type="text" id="collab_with_user_id_box" name="query_collab_with_user_id">
-      </div>
+        <select id="collab_with_user_id_box" name="query_collab_with_user_id">
+          <% @user_list.each do |a_user| %>
+          <option value="<%= a_user.id %>"><%= a_user.name %></option>
+          <% end %>
+        </select>
+      <%#/div%>
 
       <button>
         Share!

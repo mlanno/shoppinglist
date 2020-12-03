@@ -18,6 +18,12 @@ class ListCollaborationsController < ApplicationController
   end
 
   def create
+    #the_id = params.fetch("path_id")
+
+    #matching_shopping_lists = ShoppingList.where({ :id => the_id })
+
+    #@the_shopping_list = matching_shopping_lists.at(0)
+
     the_list_collaboration = ListCollaboration.new
     the_list_collaboration.list_id = params.fetch("query_list_id")
     the_list_collaboration.collab_with_user_id = params.fetch("query_collab_with_user_id")

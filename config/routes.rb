@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   post("/insert_list_item", { :controller => "list_items", :action => "create" })
           
   # READ
-  get("/list_items", { :controller => "list_items", :action => "index" })
+  #get("/list_items", { :controller => "list_items", :action => "index" })
   
-  get("/list_items/:path_id", { :controller => "list_items", :action => "show" })
+  #get("/list_items/:path_id", { :controller => "list_items", :action => "show" })
   
   # UPDATE
   
@@ -46,9 +46,9 @@ Rails.application.routes.draw do
   post("/insert_list_collaboration", { :controller => "list_collaborations", :action => "create" })
           
   # READ
-  get("/list_collaborations", { :controller => "list_collaborations", :action => "index" })
+  #get("/list_collaborations", { :controller => "list_collaborations", :action => "index" })
   
-  get("/list_collaborations/:path_id", { :controller => "list_collaborations", :action => "show" })
+  #get("/list_collaborations/:path_id", { :controller => "list_collaborations", :action => "show" })
   
   # UPDATE
   

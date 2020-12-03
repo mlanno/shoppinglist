@@ -27,6 +27,10 @@ class ShoppingListsController < ApplicationController
 
     @the_list_collaboration = matching_list_collaborations.order({ :created_at => :desc })
 
+    users = User.all
+
+    @user_list = users.order({ :name => :desc })
+
     render({ :template => "shopping_lists/show.html.erb" })
 
   end

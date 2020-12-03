@@ -1,0 +1,73 @@
+id,created_at,updated_at,category,aisle
+1,,,salad dressing,1
+2,,,bread (packaged),1
+3,,,peanut butter,1
+4,,,boxed potatoes,1
+5,,,boxed dinners,1
+6,,,pickles,1
+7,,,ketchup,1
+8,,,canned foods,1
+9,,,condiments,1
+10,,,fruit,produce
+11,,,vegetables,produce
+12,,,bakery,bakery
+13,,,artisanal cheese,artisanal cheese section
+14,,,butcher counter,butcher counter
+15,,,deli,deli
+16,,,dairy,dairy
+17,,,refrigerated meat,refrigerated meats
+18,,,personal care,personal care
+19,,,frozen food,frozen
+20,,,beer,alcohol
+21,,,wine,alcohol
+22,,,spirits,alcohol
+23,,,floral,floral
+24,,,international,2
+25,,,rice & beans,3
+26,,,coffee,3
+27,,,tuna,3
+28,,,tea,3
+29,,,natural snacks,3
+30,,,soups,3
+31,,,cereal,4
+32,,,soy milk,4
+33,,,pancake mix,4
+34,,,granola bars,4
+35,,,hot cereal,4
+36,,,applesauce,4
+37,,,juice,4
+38,,,cookware,5
+39,,,baking,5
+40,,,cooking oils,5
+41,,,spices,5
+42,,,crackers,5
+43,,,cookies,5
+44,,,candy,5
+45,,,rice cakes,6
+46,,,bags & wraps,6
+47,,,chips,6
+48,,,plates & cups,6
+49,,,popcorn,6
+50,,,snack nuts,6
+51,,,pretzels,6
+52,,,cleaners,7
+53,,,dish soap,7
+54,,,detergent,7
+55,,,cat litter,7
+56,,,cat food,7
+57,,,dog treats,7
+58,,,dog food,7
+59,,,baby food,8
+60,,,formula,8
+61,,,diapers,8
+62,,,charcoal,8
+63,,,paper towels,8
+64,,,facial tissue,8
+65,,,bath tissue,8
+66,,,air fresheners,8
+67,,,sparkling water,9
+68,,,water,9
+69,,,soda,9
+70,,,sport drinks,9
+71,,,greeting cards & gift supplies,9
+72,,,other,

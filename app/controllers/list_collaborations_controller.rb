@@ -51,6 +51,6 @@ class ListCollaborationsController < ApplicationController
 
     the_list_collaboration.destroy
 
-    redirect_to("/list_collaborations", { :notice => "List collaboration deleted successfully."} )
+    redirect_to("/shopping_lists/#{the_list_collaboration.list_id}", { :notice => "List unshared."} )
   end
 end

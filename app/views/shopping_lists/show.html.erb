@@ -121,43 +121,20 @@
     <table>
       <tr>
         <th>
-          Name
         </th>
 
         <th>
         </th>
       </tr>
 
-      <% @list_of_list_items.each do |a_list_item| %>
+      <% @the_list_collaboration.each do |a_collab| %>
       <tr>
         <td>
-          <%= a_list_item.item_name %>
+          <%= a_collab.collab_with_user.name %>
         </td>
 
         <td>
-          <%= a_list_item.quantity %>
-        </td>
-
-        <td>
-          <%= a_list_item.category_id %>
-        </td>
-
-        <td>
-          <%= a_list_item.notes %>
-        </td>
-
-        <td>
-          <%= a_list_item.complete_flag %>
-        </td>
-
-        <td>
-          <a href="/list_items/<%= a_list_item.id %>">
-            Edit
-          </a>
-        </td>
-
-      <td>
-        <a href="/delete_list_item/<%= a_list_item.id %>">
+        <a href="/delete_list_collaboration/<%= a_collab.id %>">
           <i class="fas fa-minus-circle"></i>
         </a>
       </td>

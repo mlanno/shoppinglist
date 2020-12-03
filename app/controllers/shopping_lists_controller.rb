@@ -31,6 +31,10 @@ class ShoppingListsController < ApplicationController
 
     @user_list = users.order({ :name => :desc })
 
+    matching_food_categories = FoodCategory.all
+
+    @list_of_food_categories = matching_food_categories.order({ :category => :asc })
+
     render({ :template => "shopping_lists/show.html.erb" })
 
   end

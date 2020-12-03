@@ -180,7 +180,11 @@
           Category
         </label>
 
-        <input type="text" id="category_id_box" name="query_category_id">
+        <select id="category_id_box" name="query_category_id">
+          <% @list_of_food_categories.each do |a_category| %>
+          <option value="<%= a_category.id %>"><%= a_category.category %></option>
+          <% end %>
+        </select>
       </div>
 
       <div>

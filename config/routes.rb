@@ -27,16 +27,16 @@ Rails.application.routes.draw do
   post("/insert_food_category", { :controller => "food_categories", :action => "create" })
           
   # READ
-  get("/food_categories", { :controller => "food_categories", :action => "index" })
+  #get("/food_categories", { :controller => "food_categories", :action => "index" })
   
-  get("/food_categories/:path_id", { :controller => "food_categories", :action => "show" })
+  #get("/food_categories/:path_id", { :controller => "food_categories", :action => "show" })
   
   # UPDATE
   
-  post("/modify_food_category/:path_id", { :controller => "food_categories", :action => "update" })
+  #post("/modify_food_category/:path_id", { :controller => "food_categories", :action => "update" })
   
   # DELETE
-  get("/delete_food_category/:path_id", { :controller => "food_categories", :action => "destroy" })
+  #get("/delete_food_category/:path_id", { :controller => "food_categories", :action => "destroy" })
 
   #------------------------------
 

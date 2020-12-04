@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   
   # UPDATE
   
+  get("/edit_list_name/:path_id", { :controller => "shopping_lists", :action => "edit_form" })
   post("/modify_shopping_list/:path_id", { :controller => "shopping_lists", :action => "update" })
   
   # DELETE

@@ -11,104 +11,49 @@
         </a>
       </div>
 
+    <div>
+      <div>
+        <a href="/edit_list_name/<%= @the_shopping_list.id %>">
+          Edit list name
+        </a>
+      </div>      
+      
       <div>
         <a href="/delete_shopping_list/<%= @the_shopping_list.id %>">
-          Delete shopping list
+          Delete list
         </a>
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Number of items
-      </dt>
-      <dd>
-        <%= @the_shopping_list.list_items_count %>
-      </dd>
+    <table>
+      <tr>
+        <th>
+          Number of items
+        </th>
+        <th>
+          Shared with
+        </th>
+        <th>
+          Created
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= @the_shopping_list.list_items_count %>
+        </td>
 
-      <dt>
-        Shared with
-      </dt>
-      <dd>
-        <%= @the_shopping_list.list_collaborations_count %>
-      </dd>
+        <td>
+          <%= @the_shopping_list.list_collaborations_count %>
+        </td>
 
-      <dt>
-        Created
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_shopping_list.created_at) %> ago
-      </dd>
-
-      </dl>
+        <td>
+          <%= time_ago_in_words(@the_shopping_list.created_at) %>
+        </td>
+    </table>
   </div>
 </div>
 
 <hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit list name
-    </h2>
-
-    <form action="/modify_shopping_list/<%= @the_shopping_list.id %>"  method="post" >
-      <div>
-        <label for="list_name_box">
-          List name
-        </label>
-
-        <input type="text" id="list_name_box" name="query_list_name" value="<%= @the_shopping_list.list_name %>">
-      </div>
-
-      <div>
-        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_shopping_list.user_id %>">
-      </div>
-
-      <div>
-        <input type="hidden" id="list_items_count_box" name="query_list_items_count" value="<%= @the_shopping_list.list_items_count %>">
-      </div>
-
-      <div>
-        <input type="hidden" id="list_collaborations_count_box" name="query_list_collaborations_count" value="<%= @the_shopping_list.list_collaborations_count %>">
-      </div>
-
-      <button>
-        Update!
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
-
-<div>
-  <div>
-    <h2>
-      Share list
-    </h2>
-
-    <form action="/insert_list_collaboration" method="post">
-          <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>" >
-      <%#div%>
-        <%#label for="collab_with_user_id_box"%>
-          Share with
-        <%#/label%>
-
-        <select id="collab_with_user_id_box" name="query_collab_with_user_id">
-          <% @user_list.each do |a_user| %>
-          <option value="<%= a_user.id %>"><%= a_user.name %></option>
-          <% end %>
-        </select>
-      <%#/div%>
-
-      <button>
-        Share!
-      </button>
-    </form>
-  </div>
-</div>
 
 <div>
   <h2>Shared with</h2>
@@ -139,6 +84,31 @@
     </table>
   </div>
 </div>
+
+<div>
+  <div>
+    <form action="/insert_list_collaboration" method="post">
+          <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>" >
+      <%#div%>
+        <%#label for="collab_with_user_id_box"%>
+          
+        <%#/label%>
+
+        <select id="collab_with_user_id_box" name="query_collab_with_user_id">
+          <% @user_list.each do |a_user| %>
+          <option value="<%= a_user.id %>"><%= a_user.name %></option>
+          <% end %>
+        </select>
+      <%#/div%>
+
+      <button>
+        <i class="fas fa-plus-circle"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+
 
 <hr>
 
@@ -237,10 +207,6 @@
         </th>
 
         <th>
-          Complete flag
-        </th>
-
-        <th>
         </th>
       </tr>
 
@@ -264,10 +230,6 @@
 
         <td>
           <%= a_list_item.notes %>
-        </td>
-
-        <td>
-          <%= a_list_item.complete_flag %>
         </td>
 
         <td>
@@ -334,10 +296,6 @@
         </th>
 
         <th>
-          Complete flag
-        </th>
-
-        <th>
         </th>
       </tr>
 
@@ -361,10 +319,6 @@
 
         <td>
           <%= a_list_item.notes %>
-        </td>
-
-        <td>
-          <%= a_list_item.complete_flag %>
         </td>
 
         <td>

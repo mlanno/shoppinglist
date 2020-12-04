@@ -58,6 +58,16 @@ class ShoppingListsController < ApplicationController
     end
   end
 
+  def edit_form
+   the_id = params.fetch("path_id")
+
+  matching_shopping_lists = ShoppingList.where({ :id => the_id })
+
+  @the_shopping_list = matching_shopping_lists.at(0)
+  
+  render({ :template => "shopping_lists/edit_form.html.erb" })
+  end
+  
   def update
     the_id = params.fetch("path_id")
     the_shopping_list = ShoppingList.where({ :id => the_id }).at(0)

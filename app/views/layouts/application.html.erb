@@ -60,9 +60,18 @@
   <!-- Force signin -->
     
 <!-- flash style -->
-    <p style="color: green"><%= notice %></p>
+    <div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= notice %>
+    </div>
+    <%#p style="color: green"><%= notice %><%#/p%>
 
-    <p style="color: red"><%= alert %></p>
+    <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= alert %>
+    </div>
+
+    <%#p style="color: red"><%= alert %><%#/p%>
     <%= yield %>
   </body>
 </html>

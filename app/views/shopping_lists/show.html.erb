@@ -1,17 +1,15 @@
 <div>
-  <div>
-    <h1>
+  <div class="jumbotron">
+    <h1 class="display-3">
       <%= @the_shopping_list.list_name %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/shopping_lists">
-          Go back
-        </a>
-      </div>
 
-    <div>
+<p class="lead">includes <%= @the_shopping_list.list_items_count %> items | shared with  <%= @the_shopping_list.list_collaborations_count %> people | created <%= time_ago_in_words(@the_shopping_list.created_at) %> ago
+
+     <hr class="my-4">
+
+<div>
       <div>
         <a href="/edit_list_name/<%= @the_shopping_list.id %>">
           Edit list name
@@ -24,40 +22,14 @@
         </a>
       </div>
     </div>
-
-    <table>
-      <tr>
-        <th>
-          Number of items
-        </th>
-        <th>
-          Shared with
-        </th>
-        <th>
-          Created
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <%= @the_shopping_list.list_items_count %>
-        </td>
-
-        <td>
-          <%= @the_shopping_list.list_collaborations_count %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(@the_shopping_list.created_at) %>
-        </td>
-    </table>
-  </div>
-</div>
+    </div>
+    
 
 <hr>
 
-<div>
-  <h2>Shared with</h2>
-  <div>
+<div class="card border-dark mb-3" style="max-width: 40rem;">
+  <div class="card-header">Shared with</div>
+  <div class="card-body">
     <table>
       <tr>
         <th>
@@ -83,10 +55,10 @@
       <% end %>
     </table>
   </div>
-</div>
 
-<div>
-  <div>
+
+<div class="card-body">
+  <div class="form-group">
     <form action="/insert_list_collaboration" method="post">
           <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>" >
       <%#div%>
@@ -94,77 +66,78 @@
           
         <%#/label%>
 
-        <select id="collab_with_user_id_box" name="query_collab_with_user_id">
+        <select class="custom-select" id="collab_with_user_id_box" name="query_collab_with_user_id">
           <% @user_list.each do |a_user| %>
           <option value="<%= a_user.id %>"><%= a_user.name %></option>
           <% end %>
         </select>
       <%#/div%>
 
-      <button>
+      <button class="btn btn-success">
         <i class="fas fa-plus-circle"></i>
       </button>
     </form>
   </div>
+</div>
 </div>
 
 
 
 <hr>
 
-<div>
-  <div>
-    <h2>
-      What do you need from the store?
-    </h2>
 
+  <div class="card border-light mb-3" style="max-width: 40rem;">
+   <div class="card-header">What do you need from the store?
+    </div>
+
+    <div class="card-body">
     <form action="/insert_list_item" method="post">
-      <div>
-        <label for="item_name_box">
+      <div class="form-group">
+        <label class="col-form-label" for="item_name_box">
           Item
         </label>
 
-        <input type="text" id="item_name_box" name="query_item_name">
+        <input type="text" class="form-control" id="item_name_box" name="query_item_name">
       </div>
 
-      <div>
-        <label for="quantity_box">
+      <div class="form-group">
+        <label class="col-form-label" for="quantity_box">
           Quantity
         </label>
 
-        <input type="text" id="quantity_box" name="query_quantity">
+        <input type="text" class="form-control" id="quantity_box" name="query_quantity">
       </div>
 
-      <div>
-        <label for="unit_box">
+      <div class="form-group">
+        <label class="col-form-label" for="unit_box">
           Unit
         </label>
 
-        <input type="text" id="unit_box" name="query_unit">
+        <input type="text" class="form-control" id="unit_box" name="query_unit">
       </div>
 
       <div>
         <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_shopping_list.id %>">
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="category_id_box">
           Category
         </label>
 
-        <select id="category_id_box" name="query_category_id">
+        <select class="custom-select" id="category_id_box" name="query_category_id">
           <% @list_of_food_categories.each do |a_category| %>
           <option value="<%= a_category.id %>"><%= a_category.category %></option>
           <% end %>
         </select>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="notes_box">
           Notes
         </label>
 
-        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+        <textarea class="form-control" id="notes_box" name="query_notes" rows="3"></textarea>
       </div>
 
       <%# div %>
@@ -173,7 +146,7 @@
         <%# label for="complete_flag_box">Complete flag</label %>
       <%#/div%>
 
-      <button>
+      <button type="button" class="btn btn-success">
         Add!
       </button>
     </form>
@@ -181,16 +154,14 @@
 </div>
 
 <hr>
-<div>
-  <h2>Shopping List</h2>
-<div>
-<hr>
+<div class="card mb-3">
+  <h3 class="card-header">Shopping List</h3>
   
 
-<div>
-  <h3>Need to pick up</h3>
-</div>
-</div>
+<div class="card-body">
+  <h4 class="card-title">Need to pick up</h4>
+
+ <div class="card-body">
     <table class="table table-hover">
     <thead>
       <tr class="table-secondary">
@@ -280,7 +251,7 @@
           <input type="hidden" id="notes_box" name="query_notes" value="<%= a_list_item.notes %>">
           <input type="hidden" id="complete_flag_box" name="query_complete_flag" value="1">
                  
-          <button>
+          <button class="btn btn-success">
             Done!
           </button>
         </form>
@@ -293,14 +264,10 @@
   </div>
 </div>
 
-<div>
-</div>
+<div class="card-body">
+  <h4 class="card-title">In the cart!</h3>
 
-<div>
-  <h3>In the cart!</h3>
-</div>
-
-</div>
+<div class="card-body">
 <table class="table table-hover">
     <thead>
       <tr class="table-secondary">
@@ -340,7 +307,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr class="table-light">
+      <tr>
       <% @list_of_list_items_complete.each do |a_list_item| %>
       
         <td>
@@ -389,7 +356,7 @@
           <input type="hidden" id="notes_box" name="query_notes" value="<%= a_list_item.notes %>">
           <input type="hidden" id="complete_flag_box" name="query_complete_flag" value="0">
         
-          <button>
+          <button class="btn btn-secondary">
             Oops not done
           </button>
         </form>

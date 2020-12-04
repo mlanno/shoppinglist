@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # READ
   #get("/list_items", { :controller => "list_items", :action => "index" })
   
-  #get("/list_items/:path_id", { :controller => "list_items", :action => "show" })
+  get("/list_items/:path_id", { :controller => "list_items", :action => "show" })
   
   # UPDATE
   

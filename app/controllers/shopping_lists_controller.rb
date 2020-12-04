@@ -21,7 +21,13 @@ class ShoppingListsController < ApplicationController
 
     matching_list_items = ListItem.where({ :list_id => the_id })
 
-    @list_of_list_items = matching_list_items.order({ :created_at => :desc })
+    list_items_incomplete = matching_list_items.where({ :complete_flag => false })
+
+    @list_of_list_items_incomplete = list_items_incomplete.order({ :category_id => :asc })
+
+    list_items_complete = matching_list_items.where({ :complete_flag => true })
+
+    @list_of_list_items_complete = list_items_complete.order({ :category_id => :asc })
 
     matching_list_collaborations = ListCollaboration.where({ :list_id => the_id })
 

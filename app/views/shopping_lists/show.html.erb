@@ -34,19 +34,13 @@
       </dd>
 
       <dt>
-        Created at
+        Created
       </dt>
       <dd>
         <%= time_ago_in_words(@the_shopping_list.created_at) %> ago
       </dd>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_shopping_list.updated_at) %> ago
-      </dd>
-    </dl>
+      </dl>
   </div>
 </div>
 
@@ -212,18 +206,30 @@
 <div>
   <h2>Shopping List Items</h2>
   <div>
+
+  <div>
+  </div>
+
+<div>
+  <h3>Need to pick up</h3>
+</div>
+</div>
     <table>
       <tr>
         <th>
-          Name
+          Aisle
+        </th>
+        
+        <th>
+          Category
+        </th>
+
+        <th>
+          Item
         </th>
 
         <th>
           Quantity
-        </th>
-
-        <th>
-          Category
         </th>
 
         <th>
@@ -238,18 +244,22 @@
         </th>
       </tr>
 
-      <% @list_of_list_items.each do |a_list_item| %>
+      <% @list_of_list_items_incomplete.each do |a_list_item| %>
       <tr>
+        <td>
+          <%= a_list_item.category.aisle %>
+        </td>  
+        
+        <td>
+          <%= a_list_item.category.category %>
+        </td>
+
         <td>
           <%= a_list_item.item_name %>
         </td>
 
         <td>
           <%= a_list_item.quantity %>
-        </td>
-
-        <td>
-          <%= a_list_item.category_id %>
         </td>
 
         <td>
@@ -270,6 +280,118 @@
         <a href="/delete_list_item/<%= a_list_item.id %>">
           <i class="fas fa-minus-circle"></i>
         </a>
+      </td>
+
+      <td>
+        <form action="/modify_list_item/<%= a_list_item.id %>"  method="post">
+          <input type="hidden" id="item_name_box" name="query_item_name" value="<%= a_list_item.item_name %>">
+          <input type="hidden" id="quantity_box" name="query_quantity" value="<%= a_list_item.quantity %>">
+          <input type="hidden" id="list_id_box" name="query_list_id" value="<%= a_list_item.list_id %>">
+          <input type="hidden" id="category_id_box" name="query_category_id" value="<%= a_list_item.category_id %>">
+          <input type="hidden" id="notes_box" name="query_notes" value="<%= a_list_item.notes %>">
+          <input type="hidden" id="complete_flag_box" name="query_complete_flag" value="1">
+        
+          <button>
+            Done!
+          </button>
+        </form>
+      </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div>
+</div>
+
+<div>
+  <h3>In the cart!</h3>
+</div>
+
+</div>
+    <table>
+      <tr>
+        <th>
+          Aisle
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Item
+        </th>
+
+        <th>
+          Quantity
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Complete flag
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_list_items_complete.each do |a_list_item| %>
+      <tr>
+        <td>
+          <%= a_list_item.category.aisle %>
+        </td>  
+        
+        <td>
+          <%= a_list_item.category.category %>
+        </td>
+
+        <td>
+          <%= a_list_item.item_name %>
+        </td>
+
+        <td>
+          <%= a_list_item.quantity %>
+        </td>
+
+        <td>
+          <%= a_list_item.notes %>
+        </td>
+
+        <td>
+          <%= a_list_item.complete_flag %>
+        </td>
+
+        <td>
+          <a href="/list_items/<%= a_list_item.id %>">
+            Edit
+          </a>
+        </td>
+
+      <td>
+        <a href="/delete_list_item/<%= a_list_item.id %>">
+          <i class="fas fa-minus-circle"></i>
+        </a>
+      </td>
+
+      <td>
+        <form action="/modify_list_item/<%= a_list_item.id %>"  method="post">
+          <input type="hidden" id="item_name_box" name="query_item_name" value="<%= a_list_item.item_name %>">
+          <input type="hidden" id="quantity_box" name="query_quantity" value="<%= a_list_item.quantity %>">
+          <input type="hidden" id="list_id_box" name="query_list_id" value="<%= a_list_item.list_id %>">
+          <input type="hidden" id="category_id_box" name="query_category_id" value="<%= a_list_item.category_id %>">
+          <input type="hidden" id="notes_box" name="query_notes" value="<%= a_list_item.notes %>">
+          <input type="hidden" id="complete_flag_box" name="query_complete_flag" value="0">
+        
+          <button>
+            Oops not done
+          </button>
+        </form>
       </td>
 
       </tr>

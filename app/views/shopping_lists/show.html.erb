@@ -115,13 +115,13 @@
 <div>
   <div>
     <h2>
-      Add an item
+      What do you need from the store?
     </h2>
 
     <form action="/insert_list_item" method="post">
       <div>
         <label for="item_name_box">
-          Item name
+          Item
         </label>
 
         <input type="text" id="item_name_box" name="query_item_name">
@@ -133,6 +133,14 @@
         </label>
 
         <input type="text" id="quantity_box" name="query_quantity">
+      </div>
+
+      <div>
+        <label for="unit_box">
+          Unit
+        </label>
+
+        <input type="text" id="unit_box" name="query_unit">
       </div>
 
       <div>
@@ -203,6 +211,10 @@
         </th>
 
         <th>
+          Unit
+        </th>
+
+        <th>
           Notes
         </th>
 
@@ -229,6 +241,10 @@
         </td>
 
         <td>
+          <%= a_list_item.unit %>
+        </td>
+
+        <td>
           <%= a_list_item.notes %>
         </td>
 
@@ -248,11 +264,12 @@
         <form action="/modify_list_item/<%= a_list_item.id %>"  method="post">
           <input type="hidden" id="item_name_box" name="query_item_name" value="<%= a_list_item.item_name %>">
           <input type="hidden" id="quantity_box" name="query_quantity" value="<%= a_list_item.quantity %>">
+          <input type="hidden" id="unit_box" name="query_unit" value="<%= a_list_item.unit %>">
           <input type="hidden" id="list_id_box" name="query_list_id" value="<%= a_list_item.list_id %>">
           <input type="hidden" id="category_id_box" name="query_category_id" value="<%= a_list_item.category_id %>">
           <input type="hidden" id="notes_box" name="query_notes" value="<%= a_list_item.notes %>">
           <input type="hidden" id="complete_flag_box" name="query_complete_flag" value="1">
-        
+                 
           <button>
             Done!
           </button>
@@ -292,6 +309,10 @@
         </th>
 
         <th>
+          Unit
+        </th>
+
+        <th>
           Notes
         </th>
 
@@ -318,6 +339,10 @@
         </td>
 
         <td>
+          <%= a_list_item.unit %>
+        </td>
+
+        <td>
           <%= a_list_item.notes %>
         </td>
 
@@ -337,6 +362,7 @@
         <form action="/modify_list_item/<%= a_list_item.id %>"  method="post">
           <input type="hidden" id="item_name_box" name="query_item_name" value="<%= a_list_item.item_name %>">
           <input type="hidden" id="quantity_box" name="query_quantity" value="<%= a_list_item.quantity %>">
+          <input type="hidden" id="unit_box" name="query_unit" value="<%= a_list_item.unit %>">
           <input type="hidden" id="list_id_box" name="query_list_id" value="<%= a_list_item.list_id %>">
           <input type="hidden" id="category_id_box" name="query_category_id" value="<%= a_list_item.category_id %>">
           <input type="hidden" id="notes_box" name="query_notes" value="<%= a_list_item.notes %>">

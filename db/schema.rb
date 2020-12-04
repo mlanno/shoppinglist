@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_193438) do
+ActiveRecord::Schema.define(version: 2020_12_04_032734) do
 
   create_table "food_categories", force: :cascade do |t|
     t.string "category"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_193438) do
     t.boolean "complete_flag", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "unit"
   end
 
   create_table "shopping_lists", force: :cascade do |t|

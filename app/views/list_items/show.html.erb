@@ -40,6 +40,14 @@
       </div>
 
       <div>
+        <label for="unit_box">
+          Unit
+        </label>
+
+        <input type="text" id="unit_box" name="query_unit" value="<%= @the_list_item.unit %>">
+      </div>
+
+      <div>
          <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_list_item.list_id %>">
       </div>
 
@@ -48,7 +56,11 @@
           Category
         </label>
 
-        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_list_item.category_id %>">
+        <select id="category_id_box" name="query_category_id">
+          <% @list_of_food_categories.each do |a_category| %>
+          <option value="<%= a_category.id %>"><%= a_category.category %></option>
+          <% end %>
+        </select>
       </div>
 
       <div>

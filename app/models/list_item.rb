@@ -7,6 +7,7 @@
 #  item_name     :string
 #  notes         :text
 #  quantity      :integer
+#  unit          :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  category_id   :integer

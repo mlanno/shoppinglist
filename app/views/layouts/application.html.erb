@@ -60,16 +60,24 @@
   <!-- Force signin -->
     
 <!-- flash style -->
+    <% if notice == nil %>
+    
+    <% else %>
     <div class="alert alert-dismissible alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <%= notice %>
     </div>
+    <% end %>
     <%#p style="color: green"><%= notice %><%#/p%>
 
+    <% if alert == nil %>
+    
+    <% else %>
     <div class="alert alert-dismissible alert-danger">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <%= alert %>
     </div>
+     <% end %>
 
     <%#p style="color: red"><%= alert %><%#/p%>
     <%= yield %>

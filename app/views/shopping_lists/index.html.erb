@@ -1,59 +1,61 @@
-<div>
-  <div>
-    <h1>
+
+  <div class="jumbotron">
+    <h1 class="display-3">
       Shopping lists
     </h1>
-  </div>
-</div>
 
-<hr>
-
-<div>
-  <div>
-    <h2>
+     <hr class="my-4">
+    <div>
+      <h2>
       Make a list
     </h2>
 
     <form action="/insert_shopping_list" method="post">
+      <label class="col-form-label">List name</label>
       <div>
-        <label for="list_name_box">
-          List name
-        </label>
-
-        <input type="text" id="list_name_box" name="query_list_name" placeholder="name the list!">
+        <input type="text" id="list_name_box" name="query_list_name" placeholder="name the list!" class="form-control" style="max-width: 20rem;">
       </div>
 
-      <button>
-        Create shopping list
+      <div>
+      <button type="button" class="btn btn-success">
+        Create
       </button>
+      </div>    
+
+      
     </form>
   </div>
-</div>
+  </div>
+
+ 
+
+
 
 <hr>
-<div>
-<h2>My Lists</h2>
-  <div>
-    <table>
-      <tr>
+<div class="card border-dark mb-3" style="max-width: 60rem;">
+<h3 class="card-header">My Lists</h3>
+  <div class="card-body">
+    <table class="table table-hover">
+    <thead>
+      <tr class="table-active">
         
-        <th>
+        <th scope="col">
           List name
         </th>
 
-        <th>
+        <th scope="col">
           Number of items
         </th>
 
-        <th>
+        <th scope="col">
           Created
         </th>
 
-        <th>
+        <th scope="col">
           Last updated
         </th>
 
-        <th>
+        <th scope="col">
         </th>
       </tr>
 
@@ -88,34 +90,37 @@
 
 <hr>
 
-<div>
-<h2>Lists shared with me</h2>
-  <div>
-    <table>
-      <tr>
-        <th>
+<div class="card border-dark mb-3" style="max-width: 60rem;">
+<h3 class="card-header">Lists shared with me</h3>
+  <div class="card-body">
+    <table class="table table-hover">
+    <thead>
+    
+      <tr class="table-active">
+        <th scope="col">
           List name
         </th>
 
-        <th>
+        <th scope="col">
           Author
         </th>
 
-        <th>
+        <th scope="col">
           Number of items
         </th>
 
-        <th>
+        <th scope="col">
           Created
         </th>
 
-        <th>
+        <th scope="col">
           Last updated
         </th>
 
-        <th>
+        <th scope="col">
         </th>
       </tr>
+      </thead>
 
       <% @list_of_list_collaborations.each do |a_collab_list| %>
       <tr>
@@ -124,7 +129,8 @@
         </td>
 
         <td>
-          <%= a_collab_list.list.user_id %>
+          <%= a_collab_list.list.user.name %>
+          
         </td>
 
         <td>

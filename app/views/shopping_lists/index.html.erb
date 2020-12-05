@@ -17,7 +17,7 @@
       </div>
 
       <div>
-      <button type="button" class="btn btn-success">
+      <button class="btn btn-success">
         Create
       </button>
       </div>    
@@ -52,10 +52,6 @@
         </th>
 
         <th scope="col">
-          Last updated
-        </th>
-
-        <th scope="col">
         </th>
       </tr>
 
@@ -73,10 +69,7 @@
         <td>
           <%= time_ago_in_words(a_shopping_list.created_at) %> ago
         </td>
-        <td>
-          <%= time_ago_in_words(a_shopping_list.updated_at) %> ago
-        </td>
-
+        
         <td>
           <a href="/shopping_lists/<%= a_shopping_list.id %>">
             Show details
@@ -114,10 +107,6 @@
         </th>
 
         <th scope="col">
-          Last updated
-        </th>
-
-        <th scope="col">
         </th>
       </tr>
       </thead>
@@ -140,10 +129,6 @@
         <td>
           <%= time_ago_in_words(a_collab_list.list.created_at) %> ago
         </td>
-        <td>
-          <%= time_ago_in_words(a_collab_list.list.updated_at) %> ago
-        </td>
-
         <td>
           <a href="/shopping_lists/<%= a_collab_list.list_id %>">
             Show details

@@ -53,6 +53,10 @@
 
         <th scope="col">
         </th>
+
+        <th scope="col">
+        </th>
+
       </tr>
 
       <% @list_of_shopping_lists.each do |a_shopping_list| %>
@@ -74,6 +78,12 @@
           <a href="/shopping_lists/<%= a_shopping_list.id %>">
             Show details
           </a>
+        </td>
+
+        <td>
+          <a href="/delete_shopping_list/<%= a_shopping_list.id %>">
+          <i class="fas fa-minus-circle"></i>
+        </a>
         </td>
       </tr>
       <% end %>

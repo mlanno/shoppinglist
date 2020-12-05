@@ -50,7 +50,9 @@
           Category
         </label>
 
-        <select class="custom-select id="category_id_box" name="query_category_id">
+        <select class="custom-select" id="category_id_box" name="query_category_id">
+          <%#option selected="<%= @the_list_item.category.category %>"><%#= @the_list_item.category.category %><%#/option%>
+          <option value="<%= @the_list_item.category_id %>"><%= @the_list_item.category.category %></option>
           <% @list_of_food_categories.each do |a_category| %>
           <option value="<%= a_category.id %>"><%= a_category.category %></option>
           <% end %>

@@ -1,29 +1,26 @@
-<h1>
+<div class="card mb-3">
+<h3 class="card-header">
   Edit list name
-</h1>
-
+</h3>
+    <div class="card-body">
     <form action="/modify_shopping_list/<%= @the_shopping_list.id %>"  method="post" >
-      <div>
-        <label for="list_name_box">
+    
+        <label class="col-form-label" for="list_name_box">
           List name
         </label>
 
-        <input type="text" id="list_name_box" name="query_list_name" value="<%= @the_shopping_list.list_name %>">
-      </div>
-
-      <div>
+        <input style="max-width: 20rem;" class="form-control" type="text" id="list_name_box" name="query_list_name" value="<%= @the_shopping_list.list_name %>">
+      
         <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_shopping_list.user_id %>">
-      </div>
 
-      <div>
         <input type="hidden" id="list_items_count_box" name="query_list_items_count" value="<%= @the_shopping_list.list_items_count %>">
-      </div>
 
-      <div>
         <input type="hidden" id="list_collaborations_count_box" name="query_list_collaborations_count" value="<%= @the_shopping_list.list_collaborations_count %>">
-      </div>
 
-      <button>
+      <button class="btn btn-success">
         Update!
       </button>
+      </div>
     </form>
+    
+    

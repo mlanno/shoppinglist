@@ -1,18 +1,22 @@
-<h1>Welcome to Aisles!</h1>
+<div class="jumbotron">
+<h1 class="display-3">Welcome to Aisles!</h1>
+<p class="lead">Built to make your grocery shopping experience as easy as possible.</p>
+<hr class="my-4">
+
 <h2> Please sign in</h2>
 
 <form action="/user_verify_credentials" method="post">
-  <div>
+  <div class="form-group">
     <label for="email_box">Email</label>
-    <input id="email_box" name="query_email" placeholder="Enter your email..." type="text">
+    <input id="email_box" class="form-control" name="query_email" placeholder="Enter your email..." type="text" style="max-width: 15rem;">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="password_box">Password</label>
-    <input id="password_box" name="query_password" placeholder="Enter your password..." type="password">
+    <input id="password_box" class="form-control" name="query_password" placeholder="Enter your password..." type="password" style="max-width: 15rem;">
   </div>
 
-  <button>
+  <button class="btn btn-success">
     Sign in
   </button>
 </form>

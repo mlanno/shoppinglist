@@ -1,81 +1,75 @@
-<div>
-  <div>
-  <h1>
+<div class="card mb-3" style="max-width: 40rem;">
+  
+  <h3 class="card-header">
       Edit list item
-    </h1>
-    <div>
-      <div>
-        <a href="/shopping_lists/<%= @the_list_item.list_id %>">
-          Go back
-        </a>
-      </div>
-
+    </h3>
+    <div class="card-body">
+     
       <div>
         <a href="/delete_list_item/<%= @the_list_item.id %>">
           Delete list item
         </a>
       </div>
-    </div>
-
-    
+      
+       
 <div>
   <div>
     
 
     <form action="/modify_list_item/<%= @the_list_item.id %>"  method="post" >
-      <div>
-        <label for="item_name_box">
+      <div class="form-group">
+        <label class="col-form-label" for="item_name_box">
           Item name
         </label>
 
-        <input type="text" id="item_name_box" name="query_item_name" value="<%= @the_list_item.item_name %>">
+        <input type="text" class="form-control" id="item_name_box" name="query_item_name" value="<%= @the_list_item.item_name %>">
       </div>
 
-      <div>
-        <label for="quantity_box">
+      <div class="form-group">
+        <label class="col-form-label" for="quantity_box">
           Quantity
         </label>
 
-        <input type="text" id="quantity_box" name="query_quantity" value="<%= @the_list_item.quantity %>">
+        <input class="form-control" type="text" id="quantity_box" name="query_quantity" value="<%= @the_list_item.quantity %>">
       </div>
 
-      <div>
-        <label for="unit_box">
+      <div class="form-group">
+        <label class="col-form-label" for="unit_box">
           Unit
         </label>
 
-        <input type="text" id="unit_box" name="query_unit" value="<%= @the_list_item.unit %>">
+        <input class="form-control" type="text" id="unit_box" name="query_unit" value="<%= @the_list_item.unit %>">
       </div>
 
       <div>
          <input type="hidden" id="list_id_box" name="query_list_id" value="<%= @the_list_item.list_id %>">
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="category_id_box">
           Category
         </label>
 
-        <select id="category_id_box" name="query_category_id">
+        <select class="custom-select id="category_id_box" name="query_category_id">
           <% @list_of_food_categories.each do |a_category| %>
           <option value="<%= a_category.id %>"><%= a_category.category %></option>
           <% end %>
         </select>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="notes_box">
           Notes
         </label>
 
-        <textarea id="notes_box" name="query_notes"><%= @the_list_item.notes %></textarea>
+        <textarea class="form-control" id="notes_box" name="query_notes"><%= @the_list_item.notes %></textarea>
       </div>
 
-      <button>
+      <button class="btn btn-success">
         Update list item
       </button>
     </form>
   </div>
 </div>
+</div>
 
-<hr>
